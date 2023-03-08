@@ -1,0 +1,135 @@
+ext {
+
+    modele = [
+            isModule: false,
+            // true 组件化环境，将所有业务Library组件化为可执行Module，供开发人员开发
+            // false 集成环境，将所有可执行Module集成化为Library，打包到App主模块里
+    ]
+
+    android = [
+            compileSdkVersion: 33,
+            buildToolsVersion: "29.0.0",
+            minSdkVersion    : 23,
+            targetSdkVersion : 33,
+            versionCode      : 1,
+            versionName      : "1.0.0"
+    ]
+
+    version = [
+            androidSupportSdkVersion: "28.0.0",
+            retrofitSdkVersion      : "2.6.0",
+            dagger2SdkVersion       : "2.23.2",
+            glideSdkVersion         : "4.9.0",
+            butterknifeSdkVersion   : "10.2.0",
+            rxlifecycleSdkVersion   : "1.0",
+            rxlifecycle2SdkVersion  : "2.2.2",
+            espressoSdkVersion      : "3.0.1",
+            canarySdkVersion        : "2.5",
+            kotlinVersion           : "1.8.0"
+    ]
+    dependencies = [
+            //androidX基础库
+            "appcompat"                    : 'androidx.appcompat:appcompat:1.4.1',
+            "constraintlayout"             : 'androidx.constraintlayout:constraintlayout:2.1.4',
+            "navigation-fragment"          : 'androidx.navigation:navigation-fragment-ktx:2.4.1',
+            "navigation-ui"                : 'androidx.navigation:navigation-ui-ktx:2.4.1',
+            "preference"                   : 'androidx.preference:preference:1.1.0',
+            'legacy-support-v4'            : 'androidx.legacy:legacy-support-v4:1.0.0',
+            'viewpager2'                   : 'androidx.viewpager2:viewpager2:1.0.0',
+            'recyclerview'                 : 'androidx.recyclerview:recyclerview:1.2.1',
+            'multidex'                     : 'androidx.multidex:multidex:2.0.1',
+            'cardview'                     : 'androidx.cardview:cardview:1.0.0',
+            'flexbox'                      : 'com.google.android:flexbox:1.0.0',
+            "material"                     : 'com.google.android.material:material:1.5.0',
+
+            //kotlin
+            "core-ktx"                     : 'androidx.core:core-ktx:${version["kotlinVersion"]}',
+            "kotlin-stdlib"                : 'org.jetbrains.kotlin:kotlin-stdlib:${version["kotlinVersion"]}',
+            "kotlin-stdlib-common"         : 'org.jetbrains.kotlin:kotlin-stdlib-common:${version["kotlinVersion"]}',
+            'lifecycle-extensions'         : 'androidx.lifecycle:lifecycle-extensions:2.2.0',
+            'livedata'                     : 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1',
+            'viewmodel'                    : 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1',
+
+            //emooji
+            'emoji'                        : 'androidx.emoji:emoji:1.1.0',
+            'emoji-bundled'                : "androidx.emoji:emoji-bundled:1.1.0",
+            'emoji-appcompat'              : "androidx.emoji:emoji-appcompat:1.1.0",
+            //test
+            'junit'                        : 'junit:junit:4.13.2',
+            'espresso-core'                : 'androidx.test.espresso:espresso-core:3.4.0',
+
+            //rxjava
+            'rxjava'                       : "io.reactivex.rxjava2:rxjava:2.1.11",
+            'rxandroid'                    : "io.reactivex.rxjava2:rxandroid:2.0.2",
+            //解决Rxjava异步内存泄漏
+            'rxlifecycle-components'       : 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0',
+            'rxlifecycle-navi'             : 'com.trello.rxlifecycle2:rxlifecycle-navi:2.1.0',
+            //retrofit2
+            'retrofit'                     : "com.squareup.retrofit2:retrofit:2.3.0",
+            'converter-gson'               : "com.squareup.retrofit2:converter-gson:2.3.0",
+            'adapter-rxjava2'              : "com.squareup.retrofit2:adapter-rxjava2:2.3.0",
+            //'okhttp3'                      : 'com.squareup.okhttp3:okhttp:4.2.2',
+            'okhttp3-logging-interceptor'  : 'com.squareup.okhttp3:logging-interceptor:3.5.0',
+            //eventbus 通信框架
+            'eventbus'                     : "org.greenrobot:eventbus:3.0.0",
+
+            //功能依赖
+            //fresco
+            'fresco'                       : 'com.facebook.fresco:fresco:2.6.0',
+            //加载gif动图需添加此库
+            'animated-gif'                 : 'com.facebook.fresco:animated-gif:2.6.0',
+            //加载webp动图需添加此库
+            'animated-webp'                : 'com.facebook.fresco:animated-webp:2.6.0',
+            //支持webp需添加此库
+            'webpsupport'                  : 'com.facebook.fresco:webpsupport:2.6.0',
+            //网络实现层使用okhttp3需添加此库
+            'fresco-okhttp3'               : 'com.facebook.fresco:imagepipeline-okhttp3:2.6.0',
+            //用于提供fresco的各种图片变换
+            'fresco-processors'            : 'jp.wasabeef:fresco-processors:2.2.1@aar',
+            //内存泄漏检测
+            'leakcanary-android'           : 'com.squareup.leakcanary:leakcanary-android:2.9.1',
+            'leakcanary-android-no-op'     : 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3',
+            //glide
+            'glide'                        : 'com.github.bumptech.glide:glide:4.12.0',
+            'okhttp3-integration'          : 'com.github.bumptech.glide:okhttp3-integration:1.4.0@jar',
+
+            //jsoup 基于 Java 的HTML解析器
+            'jsoup'                        : 'org.jsoup:jsoup:1.11.3',
+            // agentweb 第三方的WebView,性能比系统自带的要好，功能也更多
+            'agentweb'                     : 'com.just.agentweb:agentweb:4.1.4',
+
+            //websocket
+            'nv-websocket-client'          : 'com.neovisionaries:nv-websocket-client:1.31',
+
+            //fastjson
+            'fastjson2'                    : 'com.alibaba.fastjson2:fastjson2:2.0.23',
+            //图片选择1
+            'ImageSelector'                : 'com.github.donkingliang:ImageSelector:2.2.1',
+            //图片选择2
+            // PictureSelector 基础 (必须)
+            "PictureSelector"              : 'io.github.lucksiege:pictureselector:v3.10.7',
+            // 图片压缩 (按需引入)
+            "PictureSelector-compress"     : 'io.github.lucksiege:compress:v3.10.7',
+            // 图片裁剪 (按需引入)
+            "PictureSelector-ucrop"        : 'io.github.lucksiege:ucrop:v3.10.7',
+            // 自定义相机 (按需引入)
+            "PictureSelector-camerax"      : 'io.github.lucksiege:camerax:v3.10.7',
+
+            //第三方view
+            //XTabLayout
+            'XTabLayout'                   : "com.androidkun:XTabLayout:1.1.4",
+            //SmartRefreshLayout
+            'SmartRefreshLayout'           : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2',  //1.0.5及以前版本的老用户升级需谨慎，API改动过大
+            'SmartRefreshHeader'           : 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.2',  //没有使用特殊Header，可以不加这行
+            //bravh
+            'BaseRecyclerViewAdapterHelper': 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.8',
+            // Images
+            'circleimageview'              : 'de.hdodenhof:circleimageview:2.1.0',
+            //MagicIndicator
+            'MagicIndicator'               : 'com.github.hackware1993:MagicIndicator:1.5.0',
+            // 实现了图片缩放的库
+            'PhotoView'                    : 'com.github.chrisbanes:PhotoView:2.3.0',
+            //pop阴影
+            'CrazyShadow'                  : 'com.github.Hitomis:CrazyShadow:v1.0.1',
+    ]
+}
